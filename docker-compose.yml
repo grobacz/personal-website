@@ -1,0 +1,47 @@
+version: '3.8'
+services:
+    api:
+        build:
+            context: api
+        volumes:
+            - ./api:/api
+            - ./api/.secrets:/run/secrets
+        environment:
+            DOMAIN_NAME: 'api.grobacz.loc,www.api.grobacz.loc'
+        networks:
+            - loc
+        labels:
+            - 'traefik.enable=true'
+            - 'traefik.port=80'
+            - 'traefik.frontend.rule=Host: api.grobacz.loc'
+
+    db:
+        image: 'postgres:13'
+        environment:
+            POSTGRES_USER: api
+            POSTGRES_DB: api
+            POSTGRES_PASSWORD_FILE: /run/secrets/POSTGRESS_PASSWORD
+        networks:
+            - loc
+        volumes:
+            - /var/lib/postgresql/data
+            - ./api/.secrets:/run/secrets
+
+    front:
+        build:
+            context: front
+        volumes:
+            - ./front:/app
+        environment:
+            DOMAIN_NAME: 'grobacz.loc,www.grobacz.loc'
+        tty: true
+        networks:
+            - loc
+        labels:
+            - 'traefik.enable=true'
+            - 'traefik.port=80'
+            - 'traefik.frontend.rule=Host: grobacz.loc'
+
+networks:
+    loc:
+        external: true
