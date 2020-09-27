@@ -1,17 +1,22 @@
 import React from "react";
 import {
     Container,
-    Menu
+    Menu,
+    MenuProps
 } from "semantic-ui-react";
 import { Link } from "react-router-dom";
 import HomeHeading from './HomeHeading';
 import Cv from './Cv';
 
-const MainMenu = (props) => {
+interface MainMenuProps {
+    selected: Function
+}
+
+const MainMenu = (props: MenuProps | MainMenuProps) => {
     const { selected, ...innerProps } = props
     return <Menu {...innerProps}>
         <Container>
-            <Menu.Item active={selected == HomeHeading}>
+            <Menu.Item active={selected === HomeHeading}>
                 <Link to="/"> Home </Link>
             </Menu.Item>
             <Menu.Item>
@@ -20,7 +25,7 @@ const MainMenu = (props) => {
             <Menu.Item>
                 <Link to="/skills"> Skills </Link>
             </Menu.Item>
-            <Menu.Item active={selected == Cv}>
+            <Menu.Item active={selected === Cv}>
                 <Link to="/cv"> CV </Link>
             </Menu.Item>
             <Menu.Item>

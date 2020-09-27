@@ -1,22 +1,22 @@
 import React from "react";
-import { Header, Icon, Image, Menu, Segment, Sidebar } from 'semantic-ui-react'
+import { Icon, Menu, Segment, Sidebar } from 'semantic-ui-react'
 import { Link, Route, Switch, useRouteMatch } from 'react-router-dom';
 import Dummy from '../Component/Dummy';
 
 
 const Portfolio = () => {
-    let { path, url } = useRouteMatch();
+    let { path } = useRouteMatch();
 
     return <Segment
         inverted
         textAlign="center"
         className={"fill-window"}
         style={{
-            padding: "1em 0em",
+            padding: "1em 0em"
         }}
         vertical
     >
-        <Sidebar.Pushable as={Segment}>
+        <Sidebar.Pushable as={Segment} style={{ border: 'none' }}>
             <Sidebar
                 as={Menu}
                 animation='push'
@@ -30,7 +30,7 @@ const Portfolio = () => {
                     <Icon name='home' />
                     Home
                 </Menu.Item>
-                <Menu.Item as={Link} to="/portfolio/one">
+                <Menu.Item as={Link} to="/portfolio/test">
                     <Icon name='paragraph' />
                     Test
                 </Menu.Item>
@@ -47,7 +47,7 @@ const Portfolio = () => {
                             <h3>Find your poison in the left sidebar</h3>
                         </div>
                     </Route>
-                    <Route path={`${path}/one`}>
+                    <Route path={`${path}/test`}>
                         <Dummy test="bla" />
                     </Route>
                 </Switch>
