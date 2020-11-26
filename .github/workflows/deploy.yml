@@ -15,7 +15,10 @@ jobs:
 
             - name: Build images
               working-directory: ${{runner.workspace}}/personal-website
-              run: pwd && docker-compose build front api
+              run: docker-compose build front api
+              
+            - name: Set network
+              run: docker network create loc
               
             - name: Deploy
               working-directory: ${{runner.workspace}}/personal-website
