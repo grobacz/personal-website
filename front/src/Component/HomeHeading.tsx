@@ -16,12 +16,22 @@ const HomeHeading = () => (
         />
         <Header
             as='h2'
-            content='Here we go again'
+            content='Web Developer'
             inverted
             style={{
                 fontSize: '1.7em',
                 fontWeight: 'normal',
                 marginTop: '1.5em',
+            }}
+        />
+        <Header
+            as='p'
+            content='This site is WIP, I`m trying!'
+            inverted
+            style={{
+                fontSize: '1.0em',
+                fontWeight: 'normal',
+                marginTop: '8.5em',
             }}
         />
     </Container>

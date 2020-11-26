@@ -2,6 +2,7 @@ import React from "react";
 import { Icon, Menu, Segment, Sidebar } from 'semantic-ui-react'
 import { Link, Route, Switch, useRouteMatch } from 'react-router-dom';
 import Dummy from '../Component/Dummy';
+import MeetingsCalendar from "../Component/MeetingsCalendar";
 
 
 const Portfolio = () => {
@@ -34,6 +35,10 @@ const Portfolio = () => {
                     <Icon name='paragraph' />
                     Test
                 </Menu.Item>
+                <Menu.Item as={Link} to="/portfolio/calendar">
+                    <Icon name='calendar' />
+                    Calendar
+                </Menu.Item>
             </Sidebar>
 
             <Sidebar.Pusher style={{ height: '100%' }}>
@@ -50,10 +55,13 @@ const Portfolio = () => {
                     <Route path={`${path}/test`}>
                         <Dummy test="bla" />
                     </Route>
+                    <Route path={`${path}/calendar`}>
+                        <MeetingsCalendar />
+                    </Route>
                 </Switch>
             </Sidebar.Pusher>
         </Sidebar.Pushable>
-    </Segment >;
+    </Segment>
 }
 
 export default Portfolio
