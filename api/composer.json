@@ -1,11 +1,11 @@
 {
-  "name": "spiral/app",
-  "description": "Spiral Skeleton Application",
+  "name": "grobacz/grobacz.com",
+  "description": "Grobacz personal webpage",
   "license": "MIT",
   "authors": [
     {
-      "name": "Wolfy-J",
-      "email": "wolfy.jd@gmail.com"
+      "name": "grobacz",
+      "email": "grobacz@gmail.com"
     }
   ],
   "require": {
@@ -39,7 +39,8 @@
     "cycle/migrations": "^1.0",
     "symfony/serializer": "^5.1",
     "symfony/uid": "^5.1",
-    "symfony/property-access": "^5.1"
+    "symfony/property-access": "^5.1",
+    "adhocore/jwt": "^1.0"
   },
   "require-dev": {
     "phpunit/phpunit": "^9.0"

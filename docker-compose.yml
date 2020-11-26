@@ -24,7 +24,7 @@ services:
         networks:
             - loc
         volumes:
-            - /var/lib/postgresql/data
+            - grobacz_database:/var/lib/postgresql/data
             - ./api/.secrets:/run/secrets
 
     front:
@@ -33,7 +33,7 @@ services:
         volumes:
             - ./front:/app
         environment:
-            DOMAIN_NAME: 'grobacz.loc,www.grobacz.loc'
+            DOMAIN_NAME: 'grobacz.loc'
         tty: true
         networks:
             - loc
@@ -41,6 +41,9 @@ services:
             - 'traefik.enable=true'
             - 'traefik.port=80'
             - 'traefik.frontend.rule=Host: grobacz.loc'
+
+volumes:
+    grobacz_database:
 
 networks:
     loc:

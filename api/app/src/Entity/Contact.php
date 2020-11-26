@@ -8,7 +8,7 @@ use Cycle\Annotated\Annotation\Entity;
 /**
  * @Entity
  */
-class User
+class Contact
 {
     /**
      * @Column(type="primary")
